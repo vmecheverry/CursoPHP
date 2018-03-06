@@ -1,5 +1,15 @@
 <?php 
 include_once '../config.php';
+$result=false;
+if(!empty($_POST)){
+    $sql='INSERT INTO blog_posts (title,content) values(:title,:content)';
+    
+    $query=$pdo->prepare($sql);
+    $result=$query->execute([
+        'title'=>$_POST['title'],
+        'content'=>$_POST['content']
+    ]);
+}
 ?>
 <html>
 <head>
@@ -16,7 +26,14 @@ include_once '../config.php';
         </div>
         <div class="row">
             <h2>New Post</h2>
-            <a class="btn btn-default" href="insert-post.php">Back</a>
+            <p>
+                <a class="btn btn-default" href="insert-post.php">Back</a>
+            </p>
+            <?php 
+                if($result){
+                    echo '<div class="alert alert-success">Post Saved!</div>';
+                }
+             ?>
         </div>
         <div class="row">
             <div class="col-md-8">
