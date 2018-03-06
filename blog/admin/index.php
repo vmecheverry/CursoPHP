@@ -1,5 +1,5 @@
 <?php 
-include_once 'config.php';
+include_once '../config.php';
 $query=$pdo->prepare('select * from blog_posts order by id desc');
 $query->execute();
 $blogPosts=$query->fetchAll(PDO::FETCH_ASSOC);
@@ -19,21 +19,11 @@ $blogPosts=$query->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="row">
             <div class="col-md-8">
-                
-                <?php 
-                foreach ($blogPosts as $blogPost ) {
-                echo '<div class="blog-post">';
-                echo '<h2>'.$blogPost['title'].'</h2>';
-                echo '<p>Jan 1, 2020 <a href="">Victor Mario Echeverry</a> </p>';
-                echo '<div class="blog-post-image">';
-                echo '<img src="images/keyboard.jpg" alt="">';
-                echo '</div>';
-                echo '<div class="blog-post-content">';
-                echo $blogPost['content'];
-                echo '</div>';                       
-                echo '</div>';
-                }
-                 ?>
+                <ul>
+                    <li>
+                        <a href="posts.php">Posts</a>
+                    </li>
+                </ul>
             </div>
             <div class="col-md-4">
                 Side Bar
@@ -42,7 +32,7 @@ $blogPosts=$query->fetchAll(PDO::FETCH_ASSOC);
         <div class="row">
             <div class="col-md-12">
                 <footer>This is a Footer <br>
-                    <a href="admin/index.php">Admin Panel</a>
+                  
                 </footer>
 
             </div>
