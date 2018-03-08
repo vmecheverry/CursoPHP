@@ -1,9 +1,3 @@
-<?php 
-include_once 'config.php';
-$query=$pdo->prepare('select * from blog_posts order by id desc');
-$query->execute();
-$blogPosts=$query->fetchAll(PDO::FETCH_ASSOC);
-?>
 <html>
 <head>
     <title>Blog</title>
