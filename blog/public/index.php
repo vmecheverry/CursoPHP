@@ -20,11 +20,17 @@ function render($fileName,$params=[]){
 	extract($params);
 	include $fileName;
 	return ob_get_clean();
-
 }
 
 use Phroute\Phroute\RouteCollector;
 $router = new RouteCollector();
+echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+$router->get('/admin', function() {
+
+	return render('../views/admin/index.php');
+});
+echo 'aaaaaaaaaaaaaaaaaaaaaaaaaaaassss';
+
 $router->get('/', function() use ($pdo){
 	$query=$pdo->prepare('select * from blog_posts order by id desc');
 	$query->execute();
@@ -37,7 +43,7 @@ $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 
 
 //echo $_SERVER['REQUEST_URI'];
-$response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], parse_url($_SERVER['REQUEST_URI'], $route));
+$response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'],$route);
 
 echo $response;
  ?>
