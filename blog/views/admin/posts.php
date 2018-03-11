@@ -1,24 +1,25 @@
-<?php 
-$query=$pdo->prepare('select * from blog_posts order by id desc');
-$query->execute();
-$blogPosts=$query->fetchAll(PDO::FETCH_ASSOC);
-?>
 <html>
 <head>
     <title>Blog</title>
     <!-- Latest compiled and minified CSS -->
+    <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1>Blog Title</h1>
+                <h2>Posts</h2>
             </div>
         </div>
         <div class="row">
-            <h2>Posts</h2>
-            <a  class="btn btn-primary" href="insert-post.php">New Post</a>
+            <p>
+                <a  class="btn btn-primary" href="<?php echo BASE_URL; ?>admin/posts/create"">New Post</a>
+            </p>
+            
         </div>
         <div class="row">
             <div class="col-md-8">
@@ -48,7 +49,7 @@ $blogPosts=$query->fetchAll(PDO::FETCH_ASSOC);
         <div class="row">
             <div class="col-md-12">
                 <footer>This is a Footer <br>
-                    <a href="admin/index.php">Admin Panel</a>
+                    <a href="<?php echo BASE_URL; ?>admin"">Admin Panel</a>
                 </footer>
 
             </div>
