@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-md-12">
                 <footer>This is a Footer <br>
-                    <a href="admin/index.php">Admin Panel</a>
+                    <a href="<?php echo BASE_URL;?>admin">Admin Panel</a>
                 </footer>
 
             </div>
